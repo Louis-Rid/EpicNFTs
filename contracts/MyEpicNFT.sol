@@ -61,6 +61,9 @@ contract MyEpicNFT is ERC721URIStorage {
         "Kieleth"
     ];
 
+    // Events
+    event NewEpicNFTMinted(address sender, uint256 tokenId);
+
     // Functions
     function pickRandomWords(
         uint256 tokenId
@@ -141,5 +144,7 @@ contract MyEpicNFT is ERC721URIStorage {
 
         // Increment the counter for the next NFT's id
         _tokenIds.increment();
+
+        emit NewEpicNFTMinted(msg.sender, newTokenId);
     }
 }
